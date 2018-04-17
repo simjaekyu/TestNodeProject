@@ -19,7 +19,7 @@ function start(response) {
     '</body>'+
     '</html>';
 
-    console.log("test Project");
+    console.log("test Project !!!!");
 
     response.writeHead(200, {"Content-Type": "text/html"});
     response.write(body);
@@ -27,6 +27,10 @@ function start(response) {
 }
 
 function upload(response, request) {
+  console.log("test Project !!!!");
+  console.log("test Project !!!!");
+  console.log("test Project !!!!");
+  console.log("test Project !!!!");
   console.log("Request handler 'upload' was called.");
 
   var form = new formidable.IncomingForm();
