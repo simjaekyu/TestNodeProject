@@ -1,6 +1,11 @@
 var querystring = require("querystring"),
     fs = require("fs"),
     formidable = require("formidable");
+// NodeClass를 선언한다. 여기서 NodeClass 는 변구명이 아니라 class 명이므로 첫글자를 대문자로 한다.
+var NodeClass = require("./NodeClass");
+
+// new 연산자를 사용하여 NodeClass 클래스를 nodeClass 변수로 초기화 한다.
+var nodeClazz = new NodeClass();
 
 function start(response) {
   console.log("Request handler 'start' was called.");
@@ -15,6 +20,7 @@ function start(response) {
     'method="post">'+
     '<input type="file" name="upload" multiple="multiple">'+
     '<input type="submit" value="Upload file" />'+
+    '<a href="/nodeClass">Go to Class Test</a>'+
     '</form>'+
     '</body>'+
     '</html>';
@@ -23,6 +29,14 @@ function start(response) {
 
     response.writeHead(200, {"Content-Type": "text/html"});
     response.write(body);
+    response.end();
+}
+
+function nodeClass(response, request){
+	console.log("================= nodeClass =================");
+	nodeClazz.setMessage("Good to See u!");
+	response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write(nodeClazz.getMessage());
     response.end();
 }
 
@@ -59,3 +73,4 @@ function show(response) {
 exports.start = start;
 exports.upload = upload;
 exports.show = show;
+exports.nodeClass = nodeClass;

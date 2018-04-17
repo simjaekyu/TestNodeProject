@@ -16,4 +16,4 @@ Clazz.prototype.getMessage = function(){
 
 // export 명령어를 사용함으로써 다른 파일에서  require 예약어를 이용해 Clazz 객체를 사용할수 있게된다.
 // export 명령어의 위치는 파일의 어떤곳에 위치해도 동일하게 작동한다.
-module.export = Clazz;
+module.exports = Clazz;
