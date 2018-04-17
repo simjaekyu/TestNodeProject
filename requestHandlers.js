@@ -1,4 +1,5 @@
 var querystring = require("querystring"),
+	url = require("url"),
     fs = require("fs"),
     formidable = require("formidable");
 // NodeClass를 선언한다. 여기서 NodeClass 는 변구명이 아니라 class 명이므로 첫글자를 대문자로 한다.
@@ -70,7 +71,22 @@ function show(response) {
   });
 }
 
+function getMethodTest(response, request){
+	console.log("================= getMethodTest start =================");
+
+	var parsedUrl = url.parse(request.url);
+	var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+	console.log(parsedQuery);
+	response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write("");
+    response.end();
+
+    console.log("================= getMethodTest end =================");
+}
+
 exports.start = start;
 exports.upload = upload;
 exports.show = show;
 exports.nodeClass = nodeClass;
+exports.getMethodTest = getMethodTest;
+
