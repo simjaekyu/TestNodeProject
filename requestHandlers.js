@@ -78,10 +78,20 @@ function getMethodTest(response, request){
 	var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
 	console.log(parsedQuery);
 	response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("");
-    response.end();
+    response.end(parsedQuery.test);
 
     console.log("================= getMethodTest end =================");
+}
+
+function postMethodTest(response, request){
+	var result = {};
+	request.on('data', function(data){
+		result.data = data;
+	});
+
+	request.on('end', function(){
+		response.end(result.data);
+	});
 }
 
 exports.start = start;
@@ -89,4 +99,5 @@ exports.upload = upload;
 exports.show = show;
 exports.nodeClass = nodeClass;
 exports.getMethodTest = getMethodTest;
+exports.postMethodTest = postMethodTest;
 
