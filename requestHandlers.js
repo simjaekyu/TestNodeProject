@@ -27,10 +27,6 @@ function start(response) {
 }
 
 function upload(response, request) {
-  console.log("test Project !!!!");
-  console.log("test Project !!!!");
-  console.log("test Project !!!!");
-  console.log("test Project !!!!");
   console.log("Request handler 'upload' was called.");
 
   var form = new formidable.IncomingForm();
