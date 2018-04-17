@@ -19,7 +19,7 @@ function start(response) {
     '</body>'+
     '</html>';
 
-    console.log();
+    console.log("test Project");
 
     response.writeHead(200, {"Content-Type": "text/html"});
     response.write(body);
